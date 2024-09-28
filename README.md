@@ -1,70 +1,71 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Bouldering Competition Scoring System
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+This project is a web application designed to manage scoring for bouldering competitions. It allows users to record scores for climbers in multiple rounds, including both preliminary and finals rounds. The scoring system follows the rules set by the International Federation of Sport Climbing (IFSC).
 
-### `npm start`
+## Scoring
+### Main Round 
+Score calculation based on NIBS Competition Rules
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Main Round Score**
+  
+  | Colour  | Points |
+  |---------|--------|
+  | Green   | 5      |
+  | Yellow  | 6      |
+  | Orange  | 7      |
+  | Red     | 8      |
+  | Black   | 10     |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+At the end of the 2-hour main round, each competitor tallies up their 7 highest individual scores. The total is their overall score. If there is a tie, competitors will be ranked by their split score.
 
-### `npm test`
+- **Split Score**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  The split score ranks climbers by the number of black problems, then the number of red problems, etc. completed. All problems completed should be marked on the scoresheet as they count towards the split score.
 
-### `npm run build`
+### Finals Round 
+Score calculation based on IFSC Rules:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A climber can earn a maximum of 100 points in each round. The scoring breakdown is as follows:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 25 points for each boulder successfully topped (for a maximum of 100 points if all four boulders are topped).
+- For each boulder not topped: 
+  - 10 points for reaching the high zone (second checkpoint) 
+  - 5 points for reaching the low zone (first checkpoint).
+- -0.1 points (a deduction) for each failed attempt to reach a zone or top. Points are only deducted if an athlete later reaches that zone or top.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repository:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   git clone https://github.com/jacobpilgrim/bouldering-score.git
+   cd bouldering-score
+2. Install the necessary dependencies:
+	```bash
+	npm install
+3. If using a backend server, ensure it is running:
+	```bash
+	cd server
+	npm start
+4. Start the frontend application:
+	```bash
+	npm start
+5. Open your browser and navigate to `http://localhost:3000` to view the application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Main Round
 
-## Learn More
+-   Enter the competitor's name and the number of boulders climbed for each colour.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Finals
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   Enter the competitor's name and the number of total tops, high zones, low zones, attempts, and time across all four rounds.
+    
+-   Submit the scores to calculate total points.
+    
+-   View results in a live-updating results table.

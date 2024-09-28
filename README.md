@@ -50,7 +50,7 @@ A climber can earn a maximum of 100 points in each round. The scoring breakdown 
 3. If using a backend server, ensure it is running:
 	```bash
 	cd server
-	npm start
+	node server.js
 4. Start the frontend application:
 	```bash
 	npm start

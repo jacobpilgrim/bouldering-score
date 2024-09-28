@@ -1,4 +1,4 @@
-.App {
+.FinalRound {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -114,14 +114,18 @@ tr:nth-child(even) {
 .score-calculator {
   width: 45%;
 }
-.navbar {
-  background-color: #f8f9fa; /* Adjust as needed */
+
+.input-container {
+  margin-bottom: 10px;
 }
 
-.nav-link {
-  color: #000; /* Adjust text color */
+.checkbox-container {
+  display: flex;        
+  align-items: center;   
+  margin-bottom: 5px;    
 }
 
-.nav-link.active {
-  font-weight: bold; /* Style for active link */
+.checkbox-container label {
+  margin-right: 10px;   
 }
+

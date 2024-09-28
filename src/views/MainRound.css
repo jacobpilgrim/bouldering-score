@@ -1,4 +1,4 @@
-.App {
+.MainRound {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -113,15 +113,4 @@ tr:nth-child(even) {
 .results-table,
 .score-calculator {
   width: 45%;
-}
-.navbar {
-  background-color: #f8f9fa; /* Adjust as needed */
-}
-
-.nav-link {
-  color: #000; /* Adjust text color */
-}
-
-.nav-link.active {
-  font-weight: bold; /* Style for active link */
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Tooltip from './Tooltip';
+import {Tooltip, OverlayTrigger} from 'react-bootstrap';
 
 const ResultsTable = ({ scores }) => {
   return (
@@ -18,11 +18,17 @@ const ResultsTable = ({ scores }) => {
             <tr key={s.id}>
               <td>{index + 1}</td> 
               <td>{s.name}</td>
-              
-              <Tooltip text={ s.tooltip }>
-                <td>{s.score}</td>
-              </Tooltip>
-              
+              <OverlayTrigger
+                placement="right"
+                delay={{ show: 250, hide: 250 }}
+                overlay={
+                  <Tooltip id="tooltip-right">
+                    {s.tooltip}
+                  </Tooltip>
+                }
+              >
+                <td>{s.score} </td>
+              </OverlayTrigger>
             </tr>
           ))}
         </tbody>

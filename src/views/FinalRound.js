@@ -80,7 +80,7 @@ function FinalRound() {
               <h2>Score Calculator</h2>
               <div className="input-container">
                 <label>
-                    Competitor Name:
+                    Competitor Name
                     <input
                         type="text"
                         placeholder="Name"
@@ -124,7 +124,7 @@ function FinalRound() {
 
             <div className="input-container">
                 <label>
-                    Attempts:
+                    Attempts
                     <input
                         type="number"
                         value={attempts}
@@ -135,7 +135,7 @@ function FinalRound() {
 
             <div className="input-container">
                 <label>
-                    Total Time:
+                    Total Time
                     <input
                         type="number"
                         value={time}

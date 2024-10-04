@@ -10,6 +10,40 @@ app.use(express.json());
 let scores = [];
 let finalsScores = [];
 
+class MainScore {
+  constructor (name, score, greens, yellows, oranges, reds, blacks) {
+    this.id = Date.now()
+    this.name = name;
+    this.score = score;
+    this.greens = greens;
+    this.yellows = yellows;
+    this.oranges = oranges;
+    this.reds = reds;
+    this.blacks = blacks;
+    this.tooltip = `Greens: ${this.greens}, Yellows: ${this.yellows}, Oranges: ${this.oranges}, Reds: ${this.reds}, Blacks: ${this.blacks}`
+  }
+  toString() {
+    return `Name: ${this.name}, Score: ${this.score}, Greens: ${this.greens}, Yellows: ${this.yellows}, Oranges: ${this.oranges}, Reds: ${this.reds}, Blacks: ${this.blacks}`;
+  }
+}
+
+class FinalsScore {
+  constructor (name, score, tops, highZones, lowZones, attempts, time) {
+    this.id = Date.now()
+    this.name = name;
+    this.score = score;
+    this.tops = tops;
+    this.highZones = highZones;
+    this.lowZones = lowZones;
+    this.attempts = attempts;
+    this.time = time;
+    this.tooltip = `Tops: ${this.tops}, High Zones: ${this.highZones}, Low Zones: ${this.lowZones}, Attempts: ${this.attempts}, Time: ${this.time}`;
+  }
+  toString() {
+    return `Name: ${this.name}, Score: ${this.score}, Tops: ${this.tops}, High Zones: ${this.highZones}, Low Zones: ${this.lowZones}, Attempts: ${this.attempts}, Time: ${this.time}`;
+  }
+}
+
 app.post('/calculate-score', (req, res) => {
   const { name, greens, yellows, oranges, reds, blacks } = req.body;
 
@@ -31,7 +65,8 @@ app.post('/calculate-score', (req, res) => {
 
   const score = climbs.slice(0, 7).reduce((a, b) => a + b, 0)
   
-  const newResult = { id: Date.now(), name, score, greens, yellows, oranges, reds, blacks };
+  let newResult = new MainScore(name, score, greens, yellows, oranges, reds, blacks);
+
   scores.push(newResult);
   scores.sort((a, b) => b.score - a.score);
 
@@ -61,8 +96,8 @@ app.post('/calculate-finals-score', (req, res) => {
     score += (attempts-rounds) * -0.1
   }
 
+  let newResult = new FinalsScore(name, score, tops, highZones, lowZones, attempts, time);
 
-  const newResult = { id: Date.now(), name, score, tops, highZones, lowZones, attempts, time };
   finalsScores.push(newResult);
   finalsScores.sort((a, b) => b.score - a.score);
 

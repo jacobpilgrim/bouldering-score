@@ -61,7 +61,6 @@ function MainRound() {
       }
 
       const data = await response.json();
-
       setScore(data.score);
 
       fetchScores();
@@ -83,7 +82,7 @@ function MainRound() {
           <h2>Score Calculator</h2>
           <div className="input-container">
             <label>
-              Competitor Name:
+              Competitor Name
               <input
                 type="text"
                 placeholder="Name"
@@ -102,7 +101,7 @@ function MainRound() {
               { label: 'Blacks', state: blacksCount, setState: setBlacksCount },
             ].map(({ label, state, setState }) => (
               <label key={label}>
-                {label} climbed:
+                {label} climbed
                 <input
                   type="number"
                   value={state}

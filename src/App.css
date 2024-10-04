@@ -115,13 +115,42 @@ tr:nth-child(even) {
   width: 45%;
 }
 .navbar {
-  background-color: #f8f9fa; /* Adjust as needed */
+  background-color: #f8f9fa; 
 }
 
 .nav-link {
-  color: #000; /* Adjust text color */
+  color: #000; 
 }
 
 .nav-link.active {
-  font-weight: bold; /* Style for active link */
+  font-weight: bold; 
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip-text {
+  visibility: visible;
+  width: 500px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 105%; 
+  transform: translateY(-50%);
+  
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-container:hover .tooltip-text {
+  opacity: 1;
 }
